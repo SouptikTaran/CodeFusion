@@ -1,0 +1,99 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SignIn</title>
+</head>
+<body>
+    This page should be replaced with the SignIn page 
+    <form action="/user/Signin" method="POST">
+        <label for="username">Username:</label><br />
+        <input type="text" id="username" name="username" /><br />
+        <label for="email">Email:</label><br />
+        <input type="text" id="email" name="email" /><br /> 
+        <label for="password">Password:</label><br />
+        <input type="text" id="password" name="password" /><br />
+        <button type="submit">Submit</button>
+    </form>
+    
+</body>
+</html> -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Register page</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.4/dist/jquery.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="/css/loginPage.css" />
+  </head>
+    <!-- 
+<div class="wrapper">
+    <div class=" row justify-content-center">
+        <div class="col-sm-6 mt-4">
+            <h2>REGISTER</h2>
+            <form action="/user/Signin" method="POST">
+                <div class="form-group">
+                <label for="name">Username:</label>
+                <input type="text" id="username" name="username" placeholder="Username" required/>
+                </div>
+                
+                <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="text" id="email" name="email" placeholder="Email" required/>
+                </div>
+
+                <div class="form-group">
+                <label for="password">Password:</label>
+                <input type="text" id="password" name="password" placeholder="Password" required/>
+                </div>
+
+                
+                <div class="form-group d-flex justify-content-between">
+                <button type="submit" class="btn btn-dark mr-2">Register</button>
+                <a href="/user/Login" class="btn btn-primary mr-2">Login</a>
+                </div>
+             </form>
+        </div>
+    </div>
+  
+</div> -->
+    <body>
+      <div class="wrapper">
+        <form action="/user/Signin" method="POST">
+          <h2>Sign Up</h2>
+          <div class="input-field">
+            <input type="text" id="username" name="username" placeholder="Username" required/>
+            <label>Enter Username</label>
+          </div>
+          <div class="input-field">
+            <input type="text" id="email" name="email" placeholder="Email" required/>
+            <label>Enter Email</label>
+          </div>
+          <div class="input-field">
+            <input type="text" id="password" name="password" placeholder="Password" required/>
+            <label>Enter your password</label>
+          </div>
+          <div class="forget">
+            <label for="remember">
+              <input type="checkbox" id="remember" />
+              <p>Remember me</p>
+            </label>
+            <a href="#">Forgot password?</a>
+          </div>
+          <button type="submit">Register</button>
+          <div class="register">
+            <p>Already have an account? <a href="/user/Login">Login</a></p>
+          </div>
+        </form>
+      </div>
+    </body>
+  </body>
+</html>

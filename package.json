@@ -1,0 +1,25 @@
+{
+  "name": "code-compiler",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index" ,
+    "dev" : "nodemon index"
+    
+  },
+  "author": "Souptik Taran",
+  "license": "ISC",
+  "dependencies": {
+    "colors": "^1.4.0",
+    "compile-run": "^2.3.4",
+    "cookie-parser": "^1.4.6",
+    "ejs": "^3.1.10",
+    "express": "^4.19.2",
+    "express-session": "^1.18.0",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.4.0",
+    "nodemon": "^3.1.0",
+    "zod": "^3.23.8"
+  }
+}

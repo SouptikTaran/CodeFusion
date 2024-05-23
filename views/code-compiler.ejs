@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Compiler</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+      }
+      #codeForm {
+        margin-bottom: 20px;
+      }
+      #codeInput {
+        display: block;
+        width: 100%;
+        height: 200px;
+        padding: 10px;
+        font-size: 16px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+      }
+      #codeInput:focus {
+        outline: none;
+        border-color: dodgerblue;
+      }
+      #compileButton {
+        display: block;
+        width: 100%;
+        padding: 10px;
+        font-size: 16px;
+        color: #fff;
+        background-color: dodgerblue;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+      #compileButton:hover {
+        background-color: #007bff;
+      }
+      #outputBox {
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        padding: 10px;
+        font-size: 16px;
+        min-height: 100px;
+      }
+
+      /* CSS */
+      .button-63 {
+        align-items: center;
+        background-image: linear-gradient(
+          144deg,
+          #af40ff,
+          #5b42f3 50%,
+          #00ddeb
+        );
+        border: 0;
+        border-radius: 8px;
+        box-shadow: rgba(151, 65, 252, 0.2) 0 15px 30px -5px;
+        box-sizing: border-box;
+        color: #ffffff;
+        display: flex;
+        font-family: Phantomsans, sans-serif;
+        font-size: 20px;
+        justify-content: center;
+        line-height: 1em;
+        max-width: 100%;
+        min-width: 140px;
+        padding: 19px 24px;
+        text-decoration: none;
+        user-select: none;
+        -webkit-user-select: none;
+        touch-action: manipulation;
+        white-space: nowrap;
+        cursor: pointer;
+      }
+
+      .button-63:active,
+      .button-63:hover {
+        outline: 0;
+      }
+
+      @media (min-width: 768px) {
+        .button-63 {
+          font-size: 24px;
+          min-width: 196px;
+        }
+      }
+    </style>
+    <link rel="stylesheet" href="/css/compiler.css">
+  </head>
+  <body>
+    <div class="container">
+      <div class="editor">
+        <form id="codeForm">
+          <textarea
+            placeholder="Enter code"
+            id="codeInput"
+            name="code"
+            rows="10"
+            cols="50"
+          ></textarea>
+          <select id="language-selector">
+            <option value="python">Python</option>
+            <option value="java">Java</option>
+            <option value="C++">C++</option>
+            <option value="C-language">C-language</option>
+            <option value="PHP">PHP</option>
+          </select>
+          <button class="button-63" type="submit">Compile</button>
+        </form>
+      </div>
+      <div class="console">
+        <h2>Console Output</h2>
+        <div id="outputBox"></div>
+      </div>
+    </div>
+    <script>
+      document
+        .getElementById("codeForm")
+        .addEventListener("submit", async function (event) {
+          event.preventDefault(); // Prevent default form submission
+
+          const code = document.getElementById("codeInput").value;
+
+          try {
+            const response = await fetch("/compile/compiler", {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify({ code }),
+            });
+
+            // Handle response here
+            const responseData = await response.text();
+            clearOutput(); // Clear existing output
+            appendOutput(responseData);
+          } catch (error) {
+            console.error("Error:", error);
+          }
+        });
+
+      function appendOutput(output) {
+        const outputBox = document.getElementById("outputBox");
+        const outputElement = document.createElement("p");
+        outputElement.textContent = output;
+        outputBox.appendChild(outputElement);
+      }
+
+      function clearOutput() {
+        const outputBox = document.getElementById("outputBox");
+        outputBox.innerHTML = ""; // Clear the contents of the output box
+      }
+    </script>
+  </body>
+</html>
